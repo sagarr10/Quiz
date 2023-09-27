@@ -29,16 +29,18 @@ export const optionCheck = function (el, data) {
           HTMLDecode(btn.innerHTML.split(".")[1]) ===
           HTMLDecode(data.correct_answer)
         ) {
-          console.log(`Correct answer ho `);
           element.classList.add("correctAnswer");
           answerSelected = true;
-          // que++;
           score++;
           scoreFunc();
         } else {
-          // que++;
+          const ans = Object.values(el).find(
+            (e) =>
+              HTMLDecode(e.innerHTML.split(".")[1]) ===
+              HTMLDecode(data.correct_answer)
+          );
+          ans.classList.add("correctAnswer");
           scoreFunc();
-
           element.classList.add("wrongAnswer");
           // setTimeout(() => {
           //   list.forEach((item) => {
